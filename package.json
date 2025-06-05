@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "easyqrcodejs-nodejs": "^4.5.3",
     "qrcode": "^1.5.4"
   },
   "devDependencies": {

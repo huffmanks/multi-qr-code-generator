@@ -1,7 +1,7 @@
 import { wtData } from "./data.js";
 import { padIndex, slugify } from "./utils.js";
 
-export const options = {
+export const clientOptions = {
   width: 1024,
   height: 1024,
   margin: 16,
@@ -18,6 +18,17 @@ export const options = {
   cornersDotOptionsHelper: {
     color: "#000000",
     type: "square", // "dot" | "square"
+  },
+};
+
+export const serverOptions = {
+  type: "png",
+  width: 1024,
+  margin: 4,
+  scale: 4,
+  color: {
+    dark: "#000000",
+    light: "#ffffff",
   },
 };
 
@@ -56,10 +67,10 @@ function generateQRCodes({ urls = null, groups = null, data = null }) {
 
       const url = new URL(BASE_URL);
       url.searchParams.set("id", item.id);
-      url.searchParams.set("utm_source", UTM_SOURCE);
-      url.searchParams.set("utm_medium", UTM_MEDIUM);
-      url.searchParams.set("utm_campaign", UTM_CAMPAIGN);
-      url.searchParams.set("utm_id", `${UTM_CAMPAIGN}_${slugName}`);
+      // url.searchParams.set("utm_source", UTM_SOURCE);
+      // url.searchParams.set("utm_medium", UTM_MEDIUM);
+      // url.searchParams.set("utm_campaign", UTM_CAMPAIGN);
+      // url.searchParams.set("utm_id", `${UTM_CAMPAIGN}_${slugName}`);
 
       qrCodes.push({
         url: url.toString(),

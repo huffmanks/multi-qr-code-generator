@@ -1,5 +1,5 @@
 import QRCodeStyling from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.9.2/+esm";
-import { options, qrCodes } from "./config.js";
+import { clientOptions, qrCodes } from "./config.js";
 
 function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
@@ -12,7 +12,7 @@ function downloadBlob(blob, filename) {
 
 async function generateAndDownload(qrData) {
   const qrCode = new QRCodeStyling({
-    ...options,
+    ...clientOptions,
     data: qrData.url,
   });
 

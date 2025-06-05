@@ -1,8 +1,9 @@
 import { existsSync, mkdirSync } from "fs";
-import { join } from "path";
-import QRCode from "qrcode";
+// import QRCode from "qrcode";
+import QRCode from "easyqrcodejs-nodejs";
 
-import { options, qrCodes } from "./config.js";
+// import { join } from "path";
+import { qrCodes } from "./config.js";
 
 const QR_CODE_DIRECTORY = "./qr-codes";
 
@@ -13,27 +14,43 @@ async function main() {
 
   const promises = qrCodes.map((item) => {
     return new Promise((resolve, reject) => {
-      QRCode.toFile(
-        join(QR_CODE_DIRECTORY, item.filename),
-        item.url,
-        {
-          type: "png",
-          width: options.width,
-          height: options.height,
-          margin: 4,
-          scale: 15,
-          color: {
-            dark: options.dotsOptions.color,
-            light: options.backgroundOptions.color,
-          },
-        },
-        function (err) {
-          if (err) return reject(err);
+      // QRCode.toFile(
+      //   join(QR_CODE_DIRECTORY, item.filename),
+      //   item.url,
+      //   {
+      //     type: "png",
+      //     width: 1024,
+      //     margin: 2,
+      //     scale: 4,
+      //     color: {
+      //       dark: "#000000",
+      //       light: "#ffffff",
+      //     },
+      //   },
+      //   function (err) {
+      //     if (err) return reject(err);
 
+      //     console.log(`🌱 ${item.filename} has been created`);
+      //     resolve();
+      //   }
+      // );
+      const options = { width: 1024, height: 1024, colorDark: "#000000", colorLight: "#ffffff" };
+      const qrcode = new QRCode({ text: item.url, ...options });
+
+      const filePath = path.join("./qr-codes", item.filename);
+
+      const dir = path.dirname(filePath);
+      if (!existsSync(dir)) {
+        mkdirSync(dir, { recursive: true });
+      }
+
+      return qrcode
+        .saveImage({
+          path: filePath,
+        })
+        .then((_data) => {
           console.log(`🌱 ${item.filename} has been created`);
-          resolve();
-        }
-      );
+        });
     });
   });
 
