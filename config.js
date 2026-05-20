@@ -8,7 +8,7 @@ export const options = {
 };
 
 // Base URL used for dynamic generation
-const BASE_URL = "https://www.wofford.edu/about/news/wofford-today/archive/2026/summer/class-of-2026-spotlights?id=";
+const BASE_URL = "https://example.com?id=";
 
 function generateQRCodes({ urls = null, groups = null, videos = null }) {
   const qrCodes = [];
@@ -58,64 +58,8 @@ const urls = ["https://example.com", "https://example.com/about"];
 // Videos
 const videos = [
   {
-    id: "",
-    name: "joe-cahill",
-  },
-  {
-    id: "",
-    name: "laila-villeda-islas-chavez",
-  },
-  {
-    id: "",
-    name: "claudia-dearment",
-  },
-  {
-    id: "",
-    name: "hannah-and-rachel-dozier",
-  },
-  {
-    id: "",
-    name: "marshall-fleming",
-  },
-  {
-    id: "",
-    name: "caroline-gargano",
-  },
-  {
-    id: "",
-    name: "lilly-habart",
-  },
-  {
-    id: "",
-    name: "grace-annie-johnson",
-  },
-  {
-    id: "",
-    name: "geneva-kowbeidu",
-  },
-  {
-    id: "",
-    name: "aiden-lockhart",
-  },
-  {
-    id: "",
-    name: "brittany-moore",
-  },
-  {
-    id: "",
-    name: "cole-mueller",
-  },
-  {
-    id: "",
-    name: "hayden-pendergrass",
-  },
-  {
-    id: "",
-    name: "ona-sinani",
-  },
-  {
-    id: "",
-    name: "lena-strauss",
+    id: "adsKAdaJH",
+    name: "example",
   },
 ];
 
