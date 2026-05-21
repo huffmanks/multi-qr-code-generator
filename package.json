@@ -2,15 +2,18 @@
   "name": "sandbox",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "node --experimental-strip-types src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "easyqrcodejs-nodejs": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1"
   }
 }
